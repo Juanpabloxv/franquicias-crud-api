@@ -1,0 +1,673 @@
+{
+  "info": {
+    "name": "Franquicias API - Productos",
+    "_postman_id": "uuid-generated-id",
+    "description": "Colecci\u00f3n para probar los endpoints relacionados con productos de la API de franquicias.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Obtener todos los productos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/products",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "products"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Obtener producto por ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/products/1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "products",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Crear nuevo producto",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Producto Demo\",\n  \"stock\": 50,\n  \"branch\": {\n    \"id\": 1\n  }\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/products",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "products"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Actualizar producto",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": 1,\n  \"name\": \"Producto Actualizado\",\n  \"stock\": 70,\n  \"branch\": {\n    \"id\": 1\n  }\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/products",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "products"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Eliminar producto",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/products/1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "products",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Actualizar stock del producto",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"stock\": 100\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/products/1/stock",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "products",
+            "1",
+            "stock"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Actualizar nombre del producto",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Nuevo Nombre\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/products/1/name",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "products",
+            "1",
+            "name"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Productos con mayor stock por sucursal de una franquicia",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/products/franchises/1/top-stock",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "products",
+            "franchises",
+            "1",
+            "top-stock"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Obtener todas las franquicias",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/franchises",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "franchises"]
+        },
+        "description": "Retorna una lista de todas las franquicias registradas"
+      },
+      "response": [
+        {
+          "name": "200 OK",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/franchises",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "franchises"]
+            }
+          },
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "body": "[\n  {\n    \"id\": 1,\n    \"name\": \"Franquicia Ejemplo 1\"\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Franquicia Ejemplo 2\"\n  }\n]"
+        }
+      ]
+    },
+    {
+      "name": "Obtener franquicia por ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/franchises/1",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "franchises", "1"]
+        },
+        "description": "Obtiene los detalles de una franquicia específica por su ID"
+      },
+      "response": [
+        {
+          "name": "200 OK",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/franchises/1",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "franchises", "1"]
+            }
+          },
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "body": "{\n  \"id\": 1,\n  \"name\": \"Franquicia Ejemplo\"\n}"
+        },
+        {
+          "name": "404 Not Found",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/franchises/999",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "franchises", "999"]
+            }
+          },
+          "code": 404,
+          "_postman_previewlanguage": "json",
+          "body": ""
+        }
+      ]
+    },
+    {
+      "name": "Crear nueva franquicia",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Nueva Franquicia\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/franchises",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "franchises"]
+        },
+        "description": "Crea una nueva franquicia"
+      },
+      "response": [
+        {
+          "name": "201 Created",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Nueva Franquicia\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/franchises",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "franchises"]
+            }
+          },
+          "code": 201,
+          "_postman_previewlanguage": "json",
+          "body": "{\n  \"data\": {\n    \"id\": 3,\n    \"name\": \"Nueva Franquicia\"\n  },\n  \"success\": true,\n  \"message\": \"Franquicia creada exitosamente\"\n}"
+        },
+        {
+          "name": "400 Bad Request",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": 1,\n  \"name\": \"Franquicia con ID\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/franchises",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "franchises"]
+            }
+          },
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "body": "{\n  \"error\": true,\n  \"message\": \"La franquicia nueva no debe tener ID\"\n}"
+        },
+        {
+          "name": "409 Conflict",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Franquicia Existente\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/franchises",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "franchises"]
+            }
+          },
+          "code": 409,
+          "_postman_previewlanguage": "json",
+          "body": "{\n  \"error\": true,\n  \"message\": \"Ya existe una franquicia con este nombre\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Actualizar franquicia completa",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": 1,\n  \"name\": \"Franquicia Actualizada\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/franchises",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "franchises"]
+        },
+        "description": "Actualiza todos los campos de una franquicia"
+      },
+      "response": [
+        {
+          "name": "200 OK",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": 1,\n  \"name\": \"Franquicia Actualizada\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/franchises",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "franchises"]
+            }
+          },
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "body": "{\n  \"data\": {\n    \"id\": 1,\n    \"name\": \"Franquicia Actualizada\"\n  },\n  \"success\": true,\n  \"message\": \"Franquicia actualizada exitosamente\"\n}"
+        },
+        {
+          "name": "400 Bad Request",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Franquicia sin ID\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/franchises",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "franchises"]
+            }
+          },
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "body": "{\n  \"error\": true,\n  \"message\": \"El ID de la franquicia es obligatorio para actualizar\"\n}"
+        },
+        {
+          "name": "404 Not Found",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": 999,\n  \"name\": \"Franquicia Inexistente\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/franchises",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "franchises"]
+            }
+          },
+          "code": 404,
+          "_postman_previewlanguage": "json",
+          "body": "{\n  \"error\": true,\n  \"message\": \"No se encontró la franquicia a actualizar\"\n}"
+        },
+        {
+          "name": "409 Conflict",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": 1,\n  \"name\": \"Nombre Existente\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/franchises",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "franchises"]
+            }
+          },
+          "code": 409,
+          "_postman_previewlanguage": "json",
+          "body": "{\n  \"error\": true,\n  \"message\": \"Ya existe otra franquicia con este nombre\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Eliminar franquicia",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/franchises/1",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "franchises", "1"]
+        },
+        "description": "Elimina una franquicia por su ID"
+      },
+      "response": [
+        {
+          "name": "200 OK",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/franchises/1",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "franchises", "1"]
+            }
+          },
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "body": "{\n  \"success\": true,\n  \"message\": \"Franquicia eliminada exitosamente\"\n}"
+        },
+        {
+          "name": "404 Not Found",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/franchises/999",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "franchises", "999"]
+            }
+          },
+          "code": 404,
+          "_postman_previewlanguage": "json",
+          "body": "{\n  \"error\": true,\n  \"message\": \"No se encontró la franquicia a eliminar\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Actualizar nombre de franquicia",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Nuevo Nombre\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/franchises/1/name",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "franchises", "1", "name"]
+        },
+        "description": "Actualiza solo el nombre de una franquicia"
+      },
+      "response": [
+        {
+          "name": "200 OK",
+          "originalRequest": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Nuevo Nombre\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/franchises/1/name",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "franchises", "1", "name"]
+            }
+          },
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "body": "{\n  \"success\": true,\n  \"message\": \"Nombre de la franquicia actualizado correctamente\"\n}"
+        },
+        {
+          "name": "404 Not Found",
+          "originalRequest": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Nuevo Nombre\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/franchises/999/name",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "franchises", "999", "name"]
+            }
+          },
+          "code": 404,
+          "_postman_previewlanguage": "json",
+          "body": "{\n  \"error\": true,\n  \"message\": \"Franquicia no encontrada\"\n}"
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8080"
+    }
+  ]
+}
