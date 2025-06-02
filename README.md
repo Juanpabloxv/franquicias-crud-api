@@ -55,6 +55,8 @@ Esto levantará tanto la base de datos MySQL como la aplicación Spring Boot.
 docker compose down --volumes --rmi all
 ```
 
+---
+
 ### 3. Probar la API
 
 Puedes probar los endpoints de dos formas:
@@ -67,6 +69,18 @@ Puedes probar los endpoints de dos formas:
 Swagger expone todos los endpoints y permite probarlos directamente desde la interfaz.
 
 > La aplicación implementa un CRUD completo (GET, POST, PUT, DELETE) para cada entidad: franquicia, sucursal y producto.
+
+---
+
+### 🌐 Versión en línea (Swagger en la nube)
+
+Ya puedes probar esta API desde cualquier navegador accediendo al Swagger público desplegado en la nube:
+
+🔗 **[http://89.116.26.26:8080/swagger-ui/index.html](http://89.116.26.26:8080/swagger-ui/index.html)**
+
+> La API se encuentra desplegada y accesible desde esta URL, lo cual permite probarla desde cualquier cliente HTTP sin necesidad de instalar nada localmente.
+
+---
 
 ### 4. Detener la Aplicación
 
@@ -84,8 +98,8 @@ docker-compose down --volumes
 ## Información Adicional Importante
 
 - El contenedor utiliza los siguientes puertos:
-    - Aplicación: `8080`
-    - MySQL en local: `3307` (host) → `3306` (contenedor)
+  - Aplicación: `8080`
+  - MySQL en local: `3307` (host) → `3306` (contenedor)
 - Asegúrate de que esos puertos estén libres antes de iniciar.
 
 - Toda la aplicación fue desarrollada en **inglés** (nombres de clases, métodos, atributos) para seguir buenas prácticas.
